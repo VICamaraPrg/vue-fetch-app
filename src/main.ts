@@ -15,6 +15,9 @@ import router from './router';
 const vuetify = createVuetify({
   components,
   directives,
+  theme: {
+    defaultTheme: 'dark',
+  },
   icons: {
     defaultSet: 'mdi',
     aliases,
