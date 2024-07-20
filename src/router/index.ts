@@ -40,6 +40,17 @@ const router = createRouter({
         else next({ name: 'RoleManagement' });
       },
     },
+    {
+      path: '/shop',
+      name: 'Shop',
+      component: () => import('../views/Shop.vue'),
+    },
+
+    {
+      path: '/checkout',
+      name: 'Checkout',
+      component: () => import('../views/Checkout.vue'),
+    },
 
     {
       // Wildcard! (like Angular '**' wildcard route)

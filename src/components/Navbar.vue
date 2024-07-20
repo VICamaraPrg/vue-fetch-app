@@ -47,10 +47,33 @@
     <v-btn>
       <router-link
         class="router-link-custom"
+        to="shop"
+        >Shop</router-link
+      >
+    </v-btn>
+
+    <v-btn v-if="cartStore.cart.products.length">
+      <router-link
+        class="router-link-custom"
+        to="checkout"
+        >Checkout</router-link
+      >
+      <v-badge
+        color="red"
+        :content="cartStore.getTotalProductQuantity"
+        offset-x="-12"
+        offset-y="-12"
+      >
+      </v-badge>
+    </v-btn>
+
+    <!-- <v-btn>
+      <router-link
+        class="router-link-custom"
         to="createUser"
         >Create user</router-link
       >
-    </v-btn>
+    </v-btn> -->
 
     <v-btn v-if="userStore.isAdmin">
       <router-link
@@ -71,19 +94,20 @@
 </template>
 
 <script setup lang="ts">
+import { useCartStore } from '@/stores/cart-store';
 import { useUserStore } from '@/stores/user-store';
 
 const userStore = useUserStore();
+const cartStore = useCartStore();
 </script>
 
 <style scoped>
 .router-link-custom {
-  text-decoration: none; /* Elimina el subrayado */
-  color: inherit; /* Hereda el color del botón */
+  text-decoration: none;
+  color: inherit;
 }
 
-/* Opcional: Estilos para hover, active, etc. */
 .router-link-custom:hover {
-  text-decoration: underline; /* Ejemplo: subrayar al pasar el mouse */
+  text-decoration: underline;
 }
 </style>
